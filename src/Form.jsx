@@ -4,6 +4,7 @@ import './styles/Form.css'
 
 const Form = ({
     author = '',
+    callback,
     comment = '',
     id,
     rate= 5,
@@ -17,7 +18,23 @@ const Form = ({
     const handleOnChangeCommentInput = e => setCommentInput(e.target.value);
     const handleFormSubmit = e => {
         e.preventDefault();
-        console.log('formSubmit');
+        
+        if (!authorInput.length) return;
+
+        const rateObject = {
+            author: authorInput,
+            comment: commentInput,
+            id,
+            rate: Number(rateInput),
+        };
+
+        console.log(rateObject);
+
+        id ? console.log('Edycja oceny') : console.log('Dodanie oceny');
+
+        if (id) {
+            callback();
+        }
     }
 
     return (  
@@ -42,7 +59,7 @@ const Form = ({
                 Komentarz:
                 <input
                     onChange={handleOnChangeCommentInput}
-                    type="text"
+                    type="textarea"
                     value={commentInput}
                 />
             </label>
