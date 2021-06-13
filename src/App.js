@@ -1,10 +1,17 @@
+import { Provider } from 'react-redux';
+
+import store from './store/store';
+import Form from './Form';
+
 import './style.css';
 
 function App() {
   return (
-    <div>
-      App
-    </div>
+    <Provider store={store}>
+      <div>
+        <Form />
+      </div>
+    </Provider>
   );
 }
 
