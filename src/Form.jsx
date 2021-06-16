@@ -61,9 +61,8 @@ const Form = ({
             </label>
             <label>
                 Komentarz:
-                <input
+                <textarea
                     onChange={handleOnChangeCommentInput}
-                    type="textarea"
                     value={commentInput}
                 />
             </label>
