@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
+
+import { connect } from 'react-redux'
 
 import Form from '../Form';
+import { deleteRate } from '../actions/appActions';
 
-const Element = ({author, comment, id, rate}) => {
+const Element = ({author, comment, deleteRate, id, rate}) => {
     const [isFormVisible, setIsFormVisible] = useState(false);
 
-    const toggleElements = () => setIsFormVisible(prev => !prev)
+    const toggleElements = () => setIsFormVisible(prev => !prev);
+
+    const deleteElement = () => deleteRate(id);
 
     const formOrButtonElement = isFormVisible
         ? (
@@ -18,7 +23,10 @@ const Element = ({author, comment, id, rate}) => {
             />
         )
         : (
-            <button onClick={toggleElements}>Edytuj</button>
+            <div>
+                <button onClick={toggleElements}>Edytuj</button>
+                <button onClick={deleteElement}>Usuń</button>
+            </div>
         )
 
     return (  
@@ -30,5 +38,7 @@ const Element = ({author, comment, id, rate}) => {
         </li>
     );
 }
+
+const ElementConsumer = connect(null, {deleteRate})(Element);
  
-export default Element;
+export default ElementConsumer;
