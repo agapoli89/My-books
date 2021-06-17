@@ -3,7 +3,7 @@ import { ADD, DELETE, EDIT } from '../actions/appActions';
 export const appReducer = (state = [], action) => {
     switch (action.type) {
         case ADD:
-            return [...state, action.payload];
+            return [ ...state, action.payload];
         case EDIT:
             return state.map(currentStateElement => {
                 if (currentStateElement.id !== action.payload.id) {
