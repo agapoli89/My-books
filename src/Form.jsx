@@ -12,13 +12,16 @@ const Form = ({
     comment = '',
     id,
     rate= 5,
+    title = '',
 }) => {
     const [authorInput, setAuthorInput] = useState(author);
     const [rateInput, setRateInput] = useState(rate);
     const [commentInput, setCommentInput] = useState(comment);
+    const [titleInput, setTitleInput] = useState(title);
 
     const dispatch = useDispatch();
 
+    const handleOnChangeTitleInput = e => setTitleInput(e.target.value);
     const handleOnChangeAuthorInput = e => setAuthorInput(e.target.value);
     const handleOnChangeRateInput = e => setRateInput(e.target.value);
     const handleOnChangeCommentInput = e => setCommentInput(e.target.value);
@@ -26,6 +29,7 @@ const Form = ({
         e.preventDefault();
 
         const rateObject = {
+            title: titleInput,
             author: authorInput,
             comment: commentInput,
             id,
@@ -43,6 +47,15 @@ const Form = ({
 
     return (  
         <form onSubmit={handleFormSubmit} className="form">
+            <label>
+                Tytuł:
+                <input
+                    onChange={handleOnChangeTitleInput}
+                    type="text"
+                    value={titleInput}
+                />
+            </label>
+            <label></label>
             <label>
                 Autor:
                 <input

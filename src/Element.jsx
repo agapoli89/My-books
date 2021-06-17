@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Form from './Form';
 import { deleteRate } from './actions/appActions';
 
-const Element = ({author, comment, deleteRate, id, rate}) => {
+const Element = ({author, comment, deleteRate, id, rate, title}) => {
     const [isFormVisible, setIsFormVisible] = useState(false);
 
     const toggleElements = () => setIsFormVisible(prev => !prev);
@@ -15,6 +15,7 @@ const Element = ({author, comment, deleteRate, id, rate}) => {
     const formOrButtonElement = isFormVisible
         ? (
             <Form
+                title={title}
                 author={author}
                 callback={toggleElements}
                 comment={comment}
@@ -31,6 +32,7 @@ const Element = ({author, comment, deleteRate, id, rate}) => {
 
     return (  
         <li>
+            <p>Tytuł: {title}</p>
             <p>Autor oceny: {author}</p>
             <p>Ocena: {rate}</p>
             <p>Komentarz: {comment}</p>

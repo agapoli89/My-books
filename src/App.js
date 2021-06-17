@@ -7,9 +7,12 @@ import List from './List';
 import './style.css';
 
 function App() {
+
+  const subject = <h3>Lista przeczytanych książek:</h3>
+
   return (
     <Provider store={store}>
-      <h3>Redux</h3>
+      {subject}
       <Form />
       <List />
     </Provider>
