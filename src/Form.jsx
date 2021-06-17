@@ -24,8 +24,6 @@ const Form = ({
     const handleOnChangeCommentInput = e => setCommentInput(e.target.value);
     const handleFormSubmit = e => {
         e.preventDefault();
-        
-        if (!authorInput.length) return;
 
         const rateObject = {
             author: authorInput,
@@ -34,7 +32,7 @@ const Form = ({
             rate: Number(rateInput),
         };
 
-        id ? editRate(rateObject) : addRate(rateInput);
+        id ? editRate(rateObject) : addRate(rateObject);
 
         if (id) {
             callback();
