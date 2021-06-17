@@ -25,19 +25,21 @@ const Element = ({author, comment, deleteRate, id, rate, title}) => {
         )
         : (
             <div>
-                <button onClick={toggleElements}>Edytuj</button>
-                <button onClick={deleteElement}>Usuń</button>
+                <button onClick={toggleElements} className="btn btn-secondary mx-1">Edytuj</button>
+                <button onClick={deleteElement} className="btn btn-secondary mx-1">Usuń</button>
             </div>
         )
 
     return (  
-        <li>
-            <p>Tytuł: {title}</p>
-            <p>Autor oceny: {author}</p>
-            <p>Ocena: {rate}</p>
-            <p>Komentarz: {comment}</p>
-            {formOrButtonElement}
-        </li>
+        <div className="card m-5">
+            <div className="card-body">
+                <h5 className="card-title">Tytuł: {title}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Autor: {author}</h6>
+                <p className="card-text">Ocena: {rate}</p>
+                <p className="card-text">Komentarz: {comment}</p>
+                {formOrButtonElement}
+            </div>
+        </div>
     );
 }
 

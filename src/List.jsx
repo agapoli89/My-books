@@ -7,9 +7,9 @@ const List = () => {
     const ratesElements = rates.map(rate => <Element key={rate.id} {...rate}/>)
 
     return (  
-        <ul>
+        <div>
             {ratesElements}
-        </ul>
+        </div>
     );
 }
 
