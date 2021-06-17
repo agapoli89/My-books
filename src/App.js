@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 
 import store from './store/store';
 import Form from './Form';
-import List from './store/List';
+import List from './List';
 
 import './style.css';
 

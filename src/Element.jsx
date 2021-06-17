@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { connect } from 'react-redux'
 
-import Form from '../Form';
-import { deleteRate } from '../actions/appActions';
+import Form from './Form';
+import { deleteRate } from './actions/appActions';
 
 const Element = ({author, comment, deleteRate, id, rate}) => {
     const [isFormVisible, setIsFormVisible] = useState(false);
